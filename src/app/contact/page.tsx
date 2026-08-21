@@ -1,13 +1,12 @@
 "use client";
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { Phone, Mail, MapPin, Send, CheckCircle2 } from "lucide-react";
 
 export default function Contact() {
   const [formState, setFormState] = useState({ name: "", email: "", phone: "", message: "" });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // High-fidelity SVG paths matching exact brand guidelines
   const socialChannels = [
     {
       name: "LinkedIn",
@@ -66,7 +65,7 @@ export default function Contact() {
     setIsSubmitted(true);
   };
 
-  const fadeInUp = {
+  const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 25 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
   };

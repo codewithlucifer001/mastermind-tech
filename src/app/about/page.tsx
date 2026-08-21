@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion"; // The Effects Engine
+import { motion, type Variants } from "framer-motion";
 import { Users, ShieldCheck, Zap, Trophy, UserCheck, Briefcase, Activity, ArrowRight } from "lucide-react";
 
 export default function About() {
@@ -32,12 +32,12 @@ export default function About() {
   ];
 
   // Animation Variants for Effects
-  const fadeInUp = {
+  const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
   };
 
-  const staggerContainer = {
+  const staggerContainer: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -48,7 +48,7 @@ export default function About() {
   return (
     <main className="min-h-screen bg-[#0b0c10] pt-32 pb-24 text-white font-sans">
       
-      {/* SECTION 1: MATTE HERO (Fades in from top) */}
+      {/* SECTION 1: MATTE HERO */}
       <motion.section 
         initial="hidden" animate="visible" variants={fadeInUp}
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12"
@@ -67,7 +67,7 @@ export default function About() {
         </div>
       </motion.section>
 
-      {/* SECTION 2: STATS (Horizontal Pop Effect) */}
+      {/* SECTION 2: STATS */}
       <motion.section 
         initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6"
@@ -87,7 +87,7 @@ export default function About() {
         </div>
       </motion.section>
 
-      {/* SECTION 3: LEADERSHIP (Staggered Card Effect) */}
+      {/* SECTION 3: LEADERSHIP */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-24">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-5xl font-black">Meet Our <span className="text-[#f97316]">Leadership</span></h2>
@@ -102,10 +102,9 @@ export default function About() {
             <motion.div 
               key={idx} 
               variants={fadeInUp}
-              whileHover={{ y: -10, transition: { duration: 0.2 } }} // Hover effect
+              whileHover={{ y: -10, transition: { duration: 0.2 } }}
               className="bg-[#111217] border border-white/[0.03] rounded-2xl p-8 flex flex-col items-center text-center group"
             >
-              {/* Profile Image Slot */}
               <div className="w-32 h-32 bg-[#0b0c10] border-2 border-[#f97316]/20 rounded-full mb-6 overflow-hidden flex items-center justify-center group-hover:border-[#f97316] transition-colors">
                  <Users className="w-12 h-12 text-slate-700" />
               </div>
