@@ -1,7 +1,7 @@
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Script from "next/script"; // Safe injection engine
+import Script from "next/script";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -25,7 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Solid Corporate Compliance Footer */}
         <Footer />
 
-        {/* Workable Voiceflow Chatbot Widget Terminal Integration */}
+        {/* Voiceflow Chatbot Integration */}
         <Script
           id="voiceflow-chatbot"
           strategy="afterInteractive"
@@ -35,12 +35,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
                   v.onload = function() {
                     window.voiceflow.chat.load({
-                      verify: { projectID: '6601bc42e1261d0007548abc' },
+                      verify: { projectID: '6a250c745712006dd6ef46a4' },
                       url: 'https://general-runtime.voiceflow.com',
-                      versionID: 'production'
+                      voice: {
+                        url: "https://runtime-api.voiceflow.com"
+                      }
                     });
                   }
-                  v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+                  v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; 
+                  v.type = "text/javascript"; 
+                  s.parentNode.insertBefore(v, s);
               })(document, 'script');
             `,
           }}
